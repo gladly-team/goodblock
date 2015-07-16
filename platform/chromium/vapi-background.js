@@ -101,6 +101,11 @@ var toChromiumTabId = function(tabId) {
 };
 
 /******************************************************************************/
+vAPI.getVersion = function() {
+  var details = chrome.app.getDetails();
+  return details.version;
+}
+/******************************************************************************/
 
 vAPI.tabs.registerListeners = function() {
     var onNavigationClient = this.onNavigation || noopFunc;
