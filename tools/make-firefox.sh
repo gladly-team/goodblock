@@ -2,9 +2,9 @@
 #
 # This script assumes a linux environment
 
-echo "*** uBlock.firefox: Copying files"
+echo "*** goodblock.firefox: Copying files"
 
-DES=dist/build/uBlock.firefox
+DES=dist/build/goodblock.firefox
 rm -rf $DES
 mkdir -p $DES
 
@@ -13,6 +13,10 @@ rm $DES/assets/*.sh
 cp -R src/css $DES/
 cp -R src/img $DES/
 cp -R src/js $DES/
+mkdir $DES/js
+cp src/js/*.js $DES/js/
+echo "*** goodblock.firefox: Transforming browserify/JSX files."
+browserify -t reactify src/js/contentscript-goodblock.jsx > $DES/js/contentscript-goodblock.js
 cp -R src/lib $DES/
 cp -R src/_locales $DES/
 cp src/*.html $DES/
@@ -27,14 +31,14 @@ cp platform/firefox/install.rdf $DES/
 cp platform/firefox/*.xul $DES/
 cp LICENSE.txt $DES/
 
-echo "*** uBlock.firefox: Generating meta..."
+echo "*** goodblock.firefox: Generating meta..."
 python tools/make-firefox-meta.py $DES/
 
 if [ "$1" = all ]; then
-    echo "*** uBlock.firefox: Creating package..."
+    echo "*** goodblock.firefox: Creating package..."
     pushd $DES/
-    zip ../uBlock.firefox.xpi -qr *
+    zip ../goodblock.firefox.xpi -qr *
     popd
 fi
 
-echo "*** uBlock.firefox: Package done."
+echo "*** goodblock.firefox: Package done."
