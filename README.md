@@ -1,7 +1,7 @@
 <table width="100%">
       <tr>
       <td align="left" width="70">
-            <a href = "https://chrismatic.io/ublock/">
+            <a href = "https://www.ublock.org/">
             <img  src="https://raw.githubusercontent.com/chrisaljoudi/uBlock/master/doc/img/gh-header.png"
                   height="64">
             </a>
@@ -10,14 +10,14 @@
             <a href="https://travis-ci.org/chrisaljoudi/uBlock">
                   <img src="https://travis-ci.org/chrisaljoudi/uBlock.svg?branch=master" alt="Build status">
             </a>
-            <a href="https://chrismatic.io/donate">
+            <a href="https://www.ublock.org/donate">
                   <img src="https://chrismatic.io/oncedonate.svg" alt="Support development">
             </a>
       </td>
       </tr>
       <tr>
       <td colspan="2">
-            <strong><a href="https://chrismatic.io/ublock/">uBlock</a></strong>: an efficient blocker extension for your browser. Fast, potent, and lean.
+            <strong><a href="https://www.ublock.org/">uBlock</a></strong>: an efficient blocker extension for your browser. Fast, potent, and lean.
       </td>
       </tr>
 </table>
@@ -25,7 +25,7 @@
 * [Getting Started & Installation](#getting-started)
 * [Performance & Benchmarks](#performance)
 * [Tips](#tips)
-* [FAQ](https://chrismatic.io/ublock/faq/)
+* [FAQ](https://www.ublock.org/faq/)
 * [About](#about-ublock)
 
 ## Getting started
@@ -34,7 +34,7 @@
 
 * **Chrome**: available on the [Chrome Web Store](https://chrome.google.com/webstore/detail/ublock/epcnnfbjfcgphgdmggkamkmgojdagdnn) or for [manual](https://github.com/chrisaljoudi/uBlock/tree/master/dist#install) installation.
 
-* **Safari**: available to install [from the homepage](https://chrismatic.io/ublock/safari/), or from the [Safari Extension Gallery](https://extensions.apple.com/details/?id=net.gorhill.uBlock-96G4BAKDQ9).
+* **Safari**: available to install [from the homepage](https://www.ublock.org/), or from the [Safari Extension Gallery](https://extensions.apple.com/details/?id=net.gorhill.uBlock-96G4BAKDQ9).
 
 * **Firefox**: available on the [Firefox Add-ons site](https://addons.mozilla.org/en-US/firefox/addon/ublock/), or for [manual](https://github.com/chrisaljoudi/uBlock/releases) installation.
 
