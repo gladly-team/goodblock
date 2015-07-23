@@ -1,15 +1,15 @@
 ﻿#uBlock-legacy-button {
-	list-style-image: url('../img/browsericons/icon-large.svg');
+	list-style-image: url('../img/browsericons/icon38.png');
 }
 #uBlock-legacy-button.off {
-	list-style-image: url('../img/browsericons/icon-large-off.svg');
+	list-style-image: url('../img/browsericons/icon38-off.png');
 }
 
 toolbar[iconsize="small"] #uBlock-legacy-button {
-	list-style-image: url('../img/browsericons/icon16.svg');
+	list-style-image: url('../img/browsericons/icon19.png');
 }
 toolbar[iconsize="small"] #uBlock-legacy-button.off {
-	list-style-image: url('../img/browsericons/icon16-off.svg');
+	list-style-image: url('../img/browsericons/icon19.png');
 }
 #uBlock-legacy-button[badge]::before {
     position: fixed;
@@ -28,7 +28,7 @@ toolbar[iconsize="small"] #uBlock-legacy-button.off {
 
 /* Override off state when in palette */
 toolbarpaletteitem #uBlock-legacy-button.off {
-	list-style-image: url('../img/browsericons/icon-large.svg');
+	list-style-image: url('../img/browsericons/icon38.png');
 }
 
 /* Override badge when in palette */

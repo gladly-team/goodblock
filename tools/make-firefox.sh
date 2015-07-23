@@ -15,8 +15,6 @@ cp -R src/img $DES/
 cp -R src/js $DES/
 mkdir $DES/js
 cp src/js/*.js $DES/js/
-echo "*** goodblock.firefox: Transforming browserify/JSX files."
-browserify -t reactify src/js/contentscript-goodblock.jsx > $DES/js/contentscript-goodblock.js
 cp -R src/lib $DES/
 cp -R src/_locales $DES/
 cp src/*.html $DES/

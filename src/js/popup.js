@@ -86,6 +86,7 @@ var reNetworkRelatedURL = /^(?:ftps?|https?|wss?):\/\//;
 // https://github.com/chrisaljoudi/httpswitchboard/issues/345
 
 var messager = vAPI.messaging.channel('popup.js');
+console.log('loading popup.js');
 
 /******************************************************************************/
 
