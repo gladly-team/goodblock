@@ -327,7 +327,7 @@ var windowWatcher = {
         } else {
             attachToTabBrowser(win, tabBrowser);
         }
-        
+
     },
 
     observe: function(win, topic) {
@@ -1347,7 +1347,7 @@ vAPI.net.registerListeners = function() {
     var locationChangedListener = function(e) {
         var details = e.data;
         var browser = e.target;
-        
+
         if (details.noRefresh && details.url === browser.currentURI.asciiSpec) { // If the location changed message specified not to refresh, and the URL is the same, no need to do anything
             //console.debug("nsIWebProgressListener: ignoring onLocationChange: " + details.url);
             return;
@@ -1357,7 +1357,7 @@ vAPI.net.registerListeners = function() {
         if (tabId === vAPI.noTabId) {
             return; // Do not navigate for behind the scenes
         }
-        //console.debug("nsIWebProgressListener: onLocationChange: " + details.url + " (" + details.flags + ")");        
+        //console.debug("nsIWebProgressListener: onLocationChange: " + details.url + " (" + details.flags + ")");
 
         // LOCATION_CHANGE_SAME_DOCUMENT = "did not load a new document"
         if ( details.flags & Ci.nsIWebProgressListener.LOCATION_CHANGE_SAME_DOCUMENT ) {
@@ -1513,7 +1513,7 @@ vAPI.toolbarButton.init = function() {
         var legacyButtonId = "uBlock-legacy-button"; // NOTE: must match legacy-toolbar-button.css
         this.id = legacyButtonId;
         this.viewId = legacyButtonId + "-panel";
-                
+
         if (!sss.sheetRegistered(styleSheetUri, sss.AUTHOR_SHEET)) {
             sss.loadAndRegisterSheet(styleSheetUri, sss.AUTHOR_SHEET); // Register global so it works in all windows, including palette
         }
@@ -1521,7 +1521,7 @@ vAPI.toolbarButton.init = function() {
         var addLegacyToolbarButton = function(window) {
             var document = window.document;
             var toolbox = document.getElementById('navigator-toolbox') || document.getElementById('mail-toolbox');
-            
+
             if (toolbox) {
                 var palette = toolbox.palette;
 
@@ -1548,7 +1548,7 @@ vAPI.toolbarButton.init = function() {
                 toolbarButtonPanel.addEventListener('popupshowing', vAPI.toolbarButton.onViewShowing);
                 toolbarButtonPanel.addEventListener('popuphiding', vAPI.toolbarButton.onViewHiding);
                 toolbarButton.appendChild(toolbarButtonPanel);
-                
+
                 palette.appendChild(toolbarButton);
 
                 vAPI.toolbarButton.closePopup = function() {
@@ -1597,7 +1597,7 @@ vAPI.toolbarButton.init = function() {
                 }
             }
         }
-        
+
         vAPI.toolbarButton.attachToNewWindow = function(win) {
             addLegacyToolbarButton(win);
         }
@@ -1623,12 +1623,12 @@ vAPI.toolbarButton.init = function() {
     this.styleURI = [
         '#' + this.id + '.off {',
             'list-style-image: url(',
-                vAPI.getURL('img/browsericons/icon16-off.svg'),
+                vAPI.getURL('img/browsericons/icon19-off.png'),
             ');',
         '}',
         '#' + this.id + ' {',
             'list-style-image: url(',
-                vAPI.getURL('img/browsericons/icon16.svg'),
+                vAPI.getURL('img/browsericons/icon19.png'),
             ');',
         '}',
         '#' + this.viewId + ' {',
@@ -1727,7 +1727,7 @@ vAPI.toolbarButton.init = function() {
     };
 
     CustomizableUI.createWidget(this);
-    
+
 
     cleanupTasks.push(function() {
         if ( this.CUIEvents ) {
@@ -1735,7 +1735,7 @@ vAPI.toolbarButton.init = function() {
         }
 
         CustomizableUI.destroyWidget(this.id);
-        
+
         for ( var win of vAPI.tabs.getWindows() ) {
             var panel = win.document.getElementById(this.viewId);
             panel.parentNode.removeChild(panel);
@@ -1760,7 +1760,7 @@ vAPI.toolbarButton.onPopupCloseRequested = function({target}) {
 
 vAPI.toolbarButton.onBeforeCreated = function(doc) {
     var panel = doc.createElement('panelview');
-    
+
     vAPI.toolbarButton.populatePanel(doc, panel);
 
     doc.getElementById('PanelUI-multiView').appendChild(panel);
@@ -1947,7 +1947,7 @@ vAPI.contextMenu.createContextMenuItem = function(doc) {
     var menuitem = doc.createElement('menuitem');
     menuitem.setAttribute('id', this.menuItemId);
     menuitem.setAttribute('label', this.menuLabel);
-    menuitem.setAttribute('image', vAPI.getURL('img/browsericons/icon16.svg'));
+    menuitem.setAttribute('image', vAPI.getURL('img/browsericons/icon19.png'));
     menuitem.setAttribute('class', 'menuitem-iconic');
     return menuitem;
 }
@@ -2035,7 +2035,7 @@ vAPI.contextMenu.registerForNetMonitor = function(eventName, toolbox, panel) {
     var doc = panel.panelWin.document;
     var menuPopup = doc.getElementById("network-request-popup");
     var insertBeforeMenuItem = doc.getElementById("request-menu-context-separator");
-    
+
     if (menuPopup && insertBeforeMenuItem) {
         var menuitem = vAPI.contextMenu.createContextMenuItem(doc);
         menuitem.addEventListener('command', function() {
