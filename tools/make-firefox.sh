@@ -18,6 +18,8 @@ cp src/js/*.js $DES/js/
 cp -R src/lib $DES/
 cp -R src/_locales $DES/
 cp src/*.html $DES/
+echo "*** goodblock.firefox: Transforming browserify/JSX files."
+browserify -t reactify src/js/contentscript-goodblock.jsx > $DES/js/contentscript-goodblock.js
 mv $DES/img/icon_128.png $DES/icon.png
 cp platform/firefox/vapi-*.js $DES/js/
 cp platform/firefox/bootstrap.js $DES/
