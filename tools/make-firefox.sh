@@ -12,7 +12,7 @@ cp -R assets $DES/
 rm $DES/assets/*.sh
 cp -R src/css $DES/
 cp -R src/img $DES/
-cp -R src/js $DES/
+# cp -R src/js $DES/
 mkdir $DES/js
 cp src/js/*.js $DES/js/
 cp -R src/lib $DES/
