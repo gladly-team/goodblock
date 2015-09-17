@@ -16,17 +16,7 @@ var GoodblockIconHolder = React.createClass({
 	onClick: function() {
 		var goodblockData = this.props.goodblockData;
 		var prevClickState = goodblockData.uiState.isClicked;
-		GoodblockDataActions.iconClick(!prevClickState);
-
-		// If the user is clicking it a second time, they're closing
-		// the ad.
-		if (prevClickState) {
-			GoodblockDataActions.sendGoodblockToBed();
-		} else {
-			// if the user is clicking it the first time
-			// log that they're viewing the ad
-			GoodblockDataActions.logAdView();
-		}
+		GoodblockDataActions.iconClick();
 	},
 	changeHoverState: function(isHovering) {
 		GoodblockDataActions.iconHover(isHovering);
@@ -55,7 +45,8 @@ var GoodblockIconHolder = React.createClass({
 		else if (
 			goodblockData.uiState.isHovering &&
 			!goodblockData.uiState.isClicked &&
-			!goodblockData.uiState.goodnight.goingToBed
+			!goodblockData.uiState.goodnight.goingToBed &&
+			!goodblockData.uiState.snooze.inProcessOfSnoozing
 		) {
 			backgroundColor = 'rgba(0, 0, 0, 0.9)';
 			snoozeButton = (
@@ -101,7 +92,8 @@ var GoodblockIconHolder = React.createClass({
 					style={style}
 					onClick={this.onClick}
 					onMouseEnter={this.onMouseEnter}
-					onMouseLeave={this.onMouseLeave} >
+					onMouseLeave={this.onMouseLeave}
+					data-goodblock-elem='icon' >
 					<GoodblockIcon goodblockData={goodblockData} />
 						<TimeoutTransitionGroup
 							appearTimeout={200}
@@ -120,8 +112,8 @@ var GoodblockIconHolder = React.createClass({
 		var SHOULD_ANIMATE_ICON = true;
 		return (
 			<TimeoutTransitionGroup
-				appearTimeout={3000}
-				enterTimeout={3000}
+				appearTimeout={1000}
+				enterTimeout={1000}
 				leaveTimeout={500}
 				transitionName='goodblock-icon'
 				transitionAppear={SHOULD_ANIMATE_ICON}

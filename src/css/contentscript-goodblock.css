@@ -14,10 +14,9 @@
 }
 
 .goodblock-icon-enter-active, .goodblock-icon-appear-active {
-	visibility: hidden !important;
+	visibility: visible !important;
 	animation-name: slideRight;
 	animation-duration: 1s;
-	animation-delay: 2s;
 	animation-timing-function: ease-in-out;
 }
 
@@ -29,7 +28,6 @@
 
 @keyframes slideRight {
 	0% {
-		visibility: visible !important;
 		transform: translateX(-150%);
 	}
 	50%{
@@ -57,7 +55,7 @@
 
 .snooze-appear, .snooze-enter {
 	opacity: 0.01;
-	transition: opacity 0.25s ease-in;
+	transition: opacity 0.25s linear;
 }
 
 .snooze-appear-active, .snooze-enter-active {
@@ -66,7 +64,7 @@
 
 .snooze-leave {
 	opacity: 1;
-	transition: opacity 0.15s ease-in;
+	transition: opacity 0.15s linear;
 }
 
 .snooze-leave.snooze-leave-active {

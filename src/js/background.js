@@ -37,32 +37,37 @@ var oneDay = 24 * oneHour;
 
 /******************************************************************************/
 
+// Goodblock.
 var checkNewInstall = function() {
-    console.log('checking if this is a new install');
     function openInNewTab(url) {
-      var win = window.open(url, '_blank');
-      win.focus();
+        var win = window.open(url, '_blank');
+        win.focus();
     }
     function onInstall() {
-      console.log('new install');
-      openInNewTab('/welcome.html')
+        openInNewTab('/welcome.html')
     }
 
     function onUpdate() {
-      console.log("Extension Updated");
+        // console.log("Extension Updated");
+    }
+
+    function getVersion() {
+        // TODO: generalize so not browser-specific.
+        var details = chrome.app.getDetails();
+        return details.version;
     }
 
     // Check if the version has changed.
     var currVersion = vAPI.getVersion();
     var prevVersion = localStorage['version']
     if (currVersion != prevVersion) {
-      // Check if we just installed this extension.
-      if (typeof prevVersion === 'undefined') {
-        onInstall();
-      } else {
-        onUpdate();
-      }
-      localStorage['version'] = currVersion;
+        // Check if we just installed this extension.
+        if (typeof prevVersion === 'undefined') {
+            onInstall();
+        } else {
+            onUpdate();
+        }
+        localStorage['version'] = currVersion;
     }
 }
 
@@ -192,4 +197,9 @@ return {
 self.µBlock = µBlock;
 console.warn("Self: ", self);
 console.warn("µBlock", µBlock);
+/******************************************************************************/
+
+// Goodblock.
+µBlock.goodblock = {};
+
 /******************************************************************************/
